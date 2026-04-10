@@ -1,0 +1,5 @@
+{
+  "name": "AI Shop Facade Designer",
+  "description": "Upload a photo of your shop, specify design preferences, and let AI generate a new, professional facade design. This app uses Gemini to visualize your ideas by applying new materials, colors, and lighting to your storefront.",
+  "requestFramePermissions": []
+}
