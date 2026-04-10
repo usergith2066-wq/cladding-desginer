@@ -9,10 +9,10 @@ import { DesignParameters } from './models/design-parameters.model';
   template: `
 <main class="container mx-auto p-4 sm:p-6 lg:p-8">
   <header class="text-center mb-8">
-    <h1 class="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 font-['Lemonada']">
-      مصمم واجهات المحلات بالذكاء الاصطناعي
+    <h1 class="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+      AI Shop Facade Designer
     </h1>
-    <p class="mt-2 text-lg text-gray-400 font-['Amiri']">قم بتحويل واجهة متجرك بقوة الذكاء الاصطناعي التوليدي.</p>
+    <p class="mt-2 text-lg text-gray-400">Transform your storefront with the power of generative AI.</p>
   </header>
 
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -26,7 +26,7 @@ import { DesignParameters } from './models/design-parameters.model';
           <div>
             <h2 id="accordion-heading-upload">
               <button type="button" (click)="toggleAccordion('upload')" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-300 border-b border-gray-700 hover:bg-gray-700/50" [attr.aria-expanded]="activeAccordionSection() === 'upload'">
-                <span class="text-xl text-purple-400 font-['Reem_Kufi']">1. ارفع صورة متجرك</span>
+                <span class="text-xl text-purple-400">1. Upload Your Shop Photo</span>
                 <svg class="w-6 h-6 shrink-0 transition-transform" [class.rotate-180]="activeAccordionSection() === 'upload'" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </button>
             </h2>
@@ -34,7 +34,7 @@ import { DesignParameters } from './models/design-parameters.model';
               <div class="p-5 border-b border-gray-700">
                 <label for="file-upload" class="w-full inline-flex items-center justify-center px-4 py-3 border-2 border-dashed border-gray-600 rounded-lg cursor-pointer hover:border-purple-500 hover:bg-gray-700/50 transition-colors">
                     <svg class="w-8 h-8 mr-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                    <span class="font-medium text-gray-300">{{ originalImage()?.name || 'اختر صورة...' }}</span>
+                    <span class="font-medium text-gray-300">{{ originalImage()?.name || 'Choose an image...' }}</span>
                 </label>
                 <input id="file-upload" type="file" class="hidden" (change)="onFileChange($event)" accept="image/png, image/jpeg">
               </div>
@@ -45,51 +45,30 @@ import { DesignParameters } from './models/design-parameters.model';
           <div>
             <h2 id="accordion-heading-cladding">
               <button type="button" (click)="toggleAccordion('cladding')" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-300 border-b border-gray-700 hover:bg-gray-700/50" [attr.aria-expanded]="activeAccordionSection() === 'cladding'">
-                <span class="text-xl text-purple-400 font-['Reem_Kufi']">2. التكسية / الخلفية</span>
+                <span class="text-xl text-purple-400">2. Cladding / Background</span>
                 <svg class="w-6 h-6 shrink-0 transition-transform" [class.rotate-180]="activeAccordionSection() === 'cladding'" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </button>
             </h2>
             <div id="accordion-body-cladding" [class.hidden]="activeAccordionSection() !== 'cladding'">
               <div class="p-5 border-b border-gray-700 grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div class="md:col-span-2 mb-4">
-                    <p class="text-sm text-gray-400 mb-2">أمثلة للمواد:</p>
-                    <div class="flex gap-4 overflow-x-auto pb-2">
-                      <div class="flex-shrink-0 text-center">
-                        <img src="https://picsum.photos/seed/solidcolor/80/80" alt="صلب" class="w-16 h-16 rounded-md border border-gray-600 mx-auto mb-1" referrerpolicy="no-referrer">
-                        <span class="text-xs text-gray-400">صلب</span>
-                      </div>
-                      <div class="flex-shrink-0 text-center">
-                        <img src="https://picsum.photos/seed/woodtexture/80/80" alt="تأثير الخشب" class="w-16 h-16 rounded-md border border-gray-600 mx-auto mb-1" referrerpolicy="no-referrer">
-                        <span class="text-xs text-gray-400">خشب</span>
-                      </div>
-                      <div class="flex-shrink-0 text-center">
-                        <img src="https://picsum.photos/seed/marbletexture/80/80" alt="تأثير الرخام" class="w-16 h-16 rounded-md border border-gray-600 mx-auto mb-1" referrerpolicy="no-referrer">
-                        <span class="text-xs text-gray-400">رخام</span>
-                      </div>
-                      <div class="flex-shrink-0 text-center">
-                        <img src="https://picsum.photos/seed/louvers/80/80" alt="شرائح" class="w-16 h-16 rounded-md border border-gray-600 mx-auto mb-1" referrerpolicy="no-referrer">
-                        <span class="text-xs text-gray-400">شرائح</span>
-                      </div>
-                    </div>
+                  <div>
+                      <label for="claddingMaterial" class="block text-sm font-medium text-gray-300 mb-1">Material</label>
+                      <select id="claddingMaterial" formControlName="claddingMaterial" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>Solid</option><option>Timber effect</option><option>Marble effect</option><option>Louvers</option></select>
                   </div>
                   <div>
-                      <label for="claddingMaterial" class="block text-sm font-medium text-gray-300 mb-1">المادة</label>
-                      <select id="claddingMaterial" formControlName="claddingMaterial" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="Solid">صلب</option><option value="Timber effect">تأثير الخشب</option><option value="Marble effect">تأثير الرخام</option><option value="Louvers">شرائح (Louvers)</option></select>
+                      <label for="claddingFinish" class="block text-sm font-medium text-gray-300 mb-1">Finish</label>
+                      <select id="claddingFinish" formControlName="claddingFinish" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>Glossy</option><option>Matte</option><option>Brushed Metal</option></select>
                   </div>
                   <div>
-                      <label for="claddingFinish" class="block text-sm font-medium text-gray-300 mb-1">التشطيب</label>
-                      <select id="claddingFinish" formControlName="claddingFinish" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="Glossy">لامع</option><option value="Matte">مطفي</option><option value="Brushed Metal">معدن مصقول</option></select>
-                  </div>
-                  <div>
-                      <label for="claddingPattern" class="block text-sm font-medium text-gray-300 mb-1">النمط</label>
-                      <select id="claddingPattern" formControlName="claddingPattern" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="Horizontal panels">ألواح أفقية</option><option value="Vertical panels">ألواح عمودية</option><option value="Geometric squares">مربعات هندسية</option></select>
+                      <label for="claddingPattern" class="block text-sm font-medium text-gray-300 mb-1">Pattern</label>
+                      <select id="claddingPattern" formControlName="claddingPattern" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>Horizontal panels</option><option>Vertical panels</option><option>Geometric squares</option></select>
                   </div>
                   <div class="text-center">
-                    <label for="claddingColor" class="block text-sm font-medium text-gray-300 mb-2">لون اللوح</label>
+                    <label for="claddingColor" class="block text-sm font-medium text-gray-300 mb-2">Panel Color</label>
                     <input type="color" id="claddingColor" formControlName="claddingColor" class="w-12 h-12 rounded-full border-4 border-gray-700 cursor-pointer">
                   </div>
                    <div class="text-center">
-                    <label for="claddingGrooveColor" class="block text-sm font-medium text-gray-300 mb-2">لون الفواصل</label>
+                    <label for="claddingGrooveColor" class="block text-sm font-medium text-gray-300 mb-2">Groove Color</label>
                     <input type="color" id="claddingGrooveColor" formControlName="claddingGrooveColor" class="w-12 h-12 rounded-full border-4 border-gray-700 cursor-pointer">
                   </div>
               </div>
@@ -100,47 +79,26 @@ import { DesignParameters } from './models/design-parameters.model';
           <div>
             <h2 id="accordion-heading-cornice">
               <button type="button" (click)="toggleAccordion('cornice')" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-300 border-b border-gray-700 hover:bg-gray-700/50" [attr.aria-expanded]="activeAccordionSection() === 'cornice'">
-                <span class="text-xl text-purple-400 font-['Reem_Kufi']">3. الكورنيش والإطار</span>
+                <span class="text-xl text-purple-400">3. Cornice & Frame</span>
                 <svg class="w-6 h-6 shrink-0 transition-transform" [class.rotate-180]="activeAccordionSection() === 'cornice'" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </button>
             </h2>
             <div id="accordion-body-cornice" [class.hidden]="activeAccordionSection() !== 'cornice'">
               <div class="p-5 border-b border-gray-700 grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div class="md:col-span-2 mb-4">
-                    <p class="text-sm text-gray-400 mb-2">أمثلة لأشكال الكورنيش:</p>
-                    <div class="flex gap-4 overflow-x-auto pb-2">
-                      <div class="flex-shrink-0 text-center">
-                        <img src="https://picsum.photos/seed/flatcornice/80/80" alt="مسطح" class="w-16 h-16 rounded-md border border-gray-600 mx-auto mb-1" referrerpolicy="no-referrer">
-                        <span class="text-xs text-gray-400">مسطح</span>
-                      </div>
-                      <div class="flex-shrink-0 text-center">
-                        <img src="https://picsum.photos/seed/extrudedcornice/80/80" alt="بارز" class="w-16 h-16 rounded-md border border-gray-600 mx-auto mb-1" referrerpolicy="no-referrer">
-                        <span class="text-xs text-gray-400">بارز</span>
-                      </div>
-                      <div class="flex-shrink-0 text-center">
-                        <img src="https://picsum.photos/seed/chamferedcornice/80/80" alt="مشطوف" class="w-16 h-16 rounded-md border border-gray-600 mx-auto mb-1" referrerpolicy="no-referrer">
-                        <span class="text-xs text-gray-400">مشطوف</span>
-                      </div>
-                      <div class="flex-shrink-0 text-center">
-                        <img src="https://picsum.photos/seed/steppedcornice/80/80" alt="متدرج" class="w-16 h-16 rounded-md border border-gray-600 mx-auto mb-1" referrerpolicy="no-referrer">
-                        <span class="text-xs text-gray-400">متدرج</span>
-                      </div>
-                    </div>
+                  <div>
+                      <label for="cornicePosition" class="block text-sm font-medium text-gray-300 mb-1">Position</label>
+                      <select id="cornicePosition" formControlName="cornicePosition" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>Top Cap</option><option>Full Box</option><option>Top and Bottom</option></select>
                   </div>
                   <div>
-                      <label for="cornicePosition" class="block text-sm font-medium text-gray-300 mb-1">الموضع</label>
-                      <select id="cornicePosition" formControlName="cornicePosition" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="Top Cap">غطاء علوي</option><option value="Full Box">صندوق كامل</option><option value="Top and Bottom">علوي وسفلي</option></select>
+                      <label for="corniceShape" class="block text-sm font-medium text-gray-300 mb-1">Shape</label>
+                      <select id="corniceShape" formControlName="corniceShape" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>Flat</option><option>Extruded</option><option>Chamfered/Slanted</option><option>Stepped</option></select>
                   </div>
                   <div>
-                      <label for="corniceShape" class="block text-sm font-medium text-gray-300 mb-1">الشكل</label>
-                      <select id="corniceShape" formControlName="corniceShape" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="Flat">مسطح</option><option value="Extruded">بارز</option><option value="Chamfered/Slanted">مشطوف/مائل</option><option value="Stepped">متدرج</option></select>
-                  </div>
-                  <div>
-                      <label for="corniceIntegratedLight" class="block text-sm font-medium text-gray-300 mb-1">إضاءة مدمجة</label>
-                      <select id="corniceIntegratedLight" formControlName="corniceIntegratedLight" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="None">لا يوجد</option><option value="LED Profile">شريط LED</option><option value="Downlights">إضاءة سفلية (Downlights)</option></select>
+                      <label for="corniceIntegratedLight" class="block text-sm font-medium text-gray-300 mb-1">Integrated Light</label>
+                      <select id="corniceIntegratedLight" formControlName="corniceIntegratedLight" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>None</option><option>LED Profile</option><option>Downlights</option></select>
                   </div>
                   <div class="text-center">
-                      <label for="corniceColor" class="block text-sm font-medium text-gray-300 mb-2">اللون</label>
+                      <label for="corniceColor" class="block text-sm font-medium text-gray-300 mb-2">Color</label>
                       <input type="color" id="corniceColor" formControlName="corniceColor" class="w-12 h-12 rounded-full border-4 border-gray-700 cursor-pointer">
                   </div>
               </div>
@@ -151,29 +109,29 @@ import { DesignParameters } from './models/design-parameters.model';
           <div>
             <h2 id="accordion-heading-typography">
               <button type="button" (click)="toggleAccordion('typography')" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-300 border-b border-gray-700 hover:bg-gray-700/50" [attr.aria-expanded]="activeAccordionSection() === 'typography'">
-                <span class="text-xl text-purple-400 font-['Reem_Kufi']">4. الخطوط والشعار</span>
+                <span class="text-xl text-purple-400">4. Typography & Logo</span>
                 <svg class="w-6 h-6 shrink-0 transition-transform" [class.rotate-180]="activeAccordionSection() === 'typography'" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </button>
             </h2>
             <div id="accordion-body-typography" [class.hidden]="activeAccordionSection() !== 'typography'">
               <div class="p-5 border-b border-gray-700 space-y-4">
-                  <h3 class="text-lg font-semibold text-gray-400 border-b border-gray-600 pb-2">النص الرئيسي</h3>
+                  <h3 class="text-lg font-semibold text-gray-400 border-b border-gray-600 pb-2">Main Text</h3>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div class="md:col-span-2"><label for="mainText" class="block text-sm font-medium text-gray-300 mb-1">النص</label><input type="text" id="mainText" formControlName="mainText" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"></div>
-                      <div><label for="mainTextFontType" class="block text-sm font-medium text-gray-300 mb-1">الخط</label><select id="mainTextFontType" formControlName="mainTextFontType" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="Naskh">نسخ</option><option value="Thuluth">ثلث</option><option value="Kufi">كوفي</option><option value="Freehand/Neon">حر/نيون</option><option value="Serif">مذيل (Serif)</option><option value="Sans Serif">غير مذيل (Sans Serif)</option></select></div>
-                      <div><label for="mainTextLetterType" class="block text-sm font-medium text-gray-300 mb-1">نوع الحرف</label><select id="mainTextLetterType" formControlName="mainTextLetterType" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="3D Box letters">حروف ثلاثية الأبعاد (صندوق)</option><option value="Flat cut">قص مسطح</option><option value="Stencil/Cut-out">مفرغ (Stencil)</option></select></div>
-                      <div><label for="mainTextMaterial" class="block text-sm font-medium text-gray-300 mb-1">المادة</label><select id="mainTextMaterial" formControlName="mainTextMaterial" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="Acrylic">أكريليك</option><option value="Stainless Steel (Gold/Silver)">ستانلس ستيل (ذهبي/فضي)</option><option value="Painted Zinc">زنك مطلي</option></select></div>
-                      <div><label for="mainTextLightingType" class="block text-sm font-medium text-gray-300 mb-1">الإضاءة</label><select id="mainTextLightingType" formControlName="mainTextLightingType" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="Front-lit">إضاءة أمامية</option><option value="Back-lit/Halo">إضاءة خلفية (هالة)</option><option value="Full-lit">إضاءة كاملة</option><option value="None">لا يوجد</option></select></div>
-                      <div class="text-center"><label for="mainTextColor" class="block text-sm font-medium text-gray-300 mb-2">لون الوجه</label><input type="color" id="mainTextColor" formControlName="mainTextColor" class="w-12 h-12 rounded-full border-4 border-gray-700 cursor-pointer"></div>
-                      <div class="text-center"><label for="mainTextReturnColor" class="block text-sm font-medium text-gray-300 mb-2">لون الجانب</label><input type="color" id="mainTextReturnColor" formControlName="mainTextReturnColor" class="w-12 h-12 rounded-full border-4 border-gray-700 cursor-pointer"></div>
+                      <div class="md:col-span-2"><label for="mainText" class="block text-sm font-medium text-gray-300 mb-1">Text</label><input type="text" id="mainText" formControlName="mainText" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"></div>
+                      <div><label for="mainTextFontType" class="block text-sm font-medium text-gray-300 mb-1">Font</label><select id="mainTextFontType" formControlName="mainTextFontType" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>Naskh</option><option>Thuluth</option><option>Kufi</option><option>Freehand/Neon</option><option>Serif</option><option>Sans Serif</option></select></div>
+                      <div><label for="mainTextLetterType" class="block text-sm font-medium text-gray-300 mb-1">Letter Type</label><select id="mainTextLetterType" formControlName="mainTextLetterType" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>3D Box letters</option><option>Flat cut</option><option>Stencil/Cut-out</option></select></div>
+                      <div><label for="mainTextMaterial" class="block text-sm font-medium text-gray-300 mb-1">Material</label><select id="mainTextMaterial" formControlName="mainTextMaterial" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>Acrylic</option><option>Stainless Steel (Gold/Silver)</option><option>Painted Zinc</option></select></div>
+                      <div><label for="mainTextLightingType" class="block text-sm font-medium text-gray-300 mb-1">Lighting</label><select id="mainTextLightingType" formControlName="mainTextLightingType" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>Front-lit</option><option>Back-lit/Halo</option><option>Full-lit</option><option>None</option></select></div>
+                      <div class="text-center"><label for="mainTextColor" class="block text-sm font-medium text-gray-300 mb-2">Face Color</label><input type="color" id="mainTextColor" formControlName="mainTextColor" class="w-12 h-12 rounded-full border-4 border-gray-700 cursor-pointer"></div>
+                      <div class="text-center"><label for="mainTextReturnColor" class="block text-sm font-medium text-gray-300 mb-2">Side Color</label><input type="color" id="mainTextReturnColor" formControlName="mainTextReturnColor" class="w-12 h-12 rounded-full border-4 border-gray-700 cursor-pointer"></div>
                   </div>
-                  <h3 class="text-lg font-semibold text-gray-400 border-b border-gray-600 pb-2 pt-4">النص الفرعي والشعار</h3>
+                  <h3 class="text-lg font-semibold text-gray-400 border-b border-gray-600 pb-2 pt-4">Subtext & Logo</h3>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div class="md:col-span-2"><label for="subText" class="block text-sm font-medium text-gray-300 mb-1">النص الفرعي</label><input type="text" id="subText" formControlName="subText" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"></div>
-                      <div><label for="subTextStyle" class="block text-sm font-medium text-gray-300 mb-1">نمط النص الفرعي</label><select id="subTextStyle" formControlName="subTextStyle" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="Small 3D letters">حروف ثلاثية الأبعاد صغيرة</option><option value="Vinyl sticker">ملصق فينيل</option><option value="Lightbox">صندوق إضاءة</option></select></div>
-                      <div><label for="subTextPosition" class="block text-sm font-medium text-gray-300 mb-1">موضع النص الفرعي</label><select id="subTextPosition" formControlName="subTextPosition" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="Below main text">أسفل النص الرئيسي</option><option value="Right of sign">يمين اللوحة</option><option value="Left of sign">يسار اللوحة</option></select></div>
-                      <div><label for="logoStyle" class="block text-sm font-medium text-gray-300 mb-1">نمط الشعار</label><select id="logoStyle" formControlName="logoStyle" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="None">لا يوجد</option><option value="3D">ثلاثي الأبعاد</option><option value="Flat print">طباعة مسطحة</option></select></div>
-                      <div><label for="logoPosition" class="block text-sm font-medium text-gray-300 mb-1">موضع الشعار</label><select id="logoPosition" formControlName="logoPosition" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="Above text">أعلى النص</option><option value="Beside text">بجانب النص</option><option value="Integrated with text">مدمج مع النص</option></select></div>
+                      <div class="md:col-span-2"><label for="subText" class="block text-sm font-medium text-gray-300 mb-1">Subtext</label><input type="text" id="subText" formControlName="subText" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"></div>
+                      <div><label for="subTextStyle" class="block text-sm font-medium text-gray-300 mb-1">Subtext Style</label><select id="subTextStyle" formControlName="subTextStyle" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>Small 3D letters</option><option>Vinyl sticker</option><option>Lightbox</option></select></div>
+                      <div><label for="subTextPosition" class="block text-sm font-medium text-gray-300 mb-1">Subtext Position</label><select id="subTextPosition" formControlName="subTextPosition" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>Below main text</option><option>Right of sign</option><option>Left of sign</option></select></div>
+                      <div><label for="logoStyle" class="block text-sm font-medium text-gray-300 mb-1">Logo Style</label><select id="logoStyle" formControlName="logoStyle" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>None</option><option>3D</option><option>Flat print</option></select></div>
+                      <div><label for="logoPosition" class="block text-sm font-medium text-gray-300 mb-1">Logo Position</label><select id="logoPosition" formControlName="logoPosition" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>Above text</option><option>Beside text</option><option>Integrated with text</option></select></div>
                   </div>
               </div>
             </div>
@@ -183,28 +141,28 @@ import { DesignParameters } from './models/design-parameters.model';
            <div>
             <h2 id="accordion-heading-structure">
               <button type="button" (click)="toggleAccordion('structure')" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-300 border-b border-gray-700 hover:bg-gray-700/50" [attr.aria-expanded]="activeAccordionSection() === 'structure'">
-                <span class="text-xl text-purple-400 font-['Reem_Kufi']">5. الهيكل والإضاءة</span>
+                <span class="text-xl text-purple-400">5. Structure & Lighting</span>
                 <svg class="w-6 h-6 shrink-0 transition-transform" [class.rotate-180]="activeAccordionSection() === 'structure'" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </button>
             </h2>
             <div id="accordion-body-structure" [class.hidden]="activeAccordionSection() !== 'structure'">
                <div class="p-5 border-b border-gray-700 space-y-4">
-                  <h3 class="text-lg font-semibold text-gray-400 border-b border-gray-600 pb-2">الأعمدة الجانبية</h3>
+                  <h3 class="text-lg font-semibold text-gray-400 border-b border-gray-600 pb-2">Side Columns</h3>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div><label for="columnsCladding" class="block text-sm font-medium text-gray-300 mb-1">التكسية</label><select id="columnsCladding" formControlName="columnsCladding" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="None">لا يوجد</option><option value="Fully Cladded">مكسو بالكامل</option><option value="Paint only">دهان فقط</option></select></div>
-                      <div><label for="columnsDesign" class="block text-sm font-medium text-gray-300 mb-1">التصميم</label><select id="columnsDesign" formControlName="columnsDesign" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="Same as main sign">نفس اللوحة الرئيسية</option><option value="Contrasting color">لون متباين</option></select></div>
-                      <div class="md:col-span-2"><label for="columnsDecor" class="block text-sm font-medium text-gray-300 mb-1">الزخرفة</label><select id="columnsDecor" formControlName="columnsDecor" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="None">لا يوجد</option><option value="Vertical LED strips">شرائط LED عمودية</option><option value="Sconces">شمعدانات (Sconces)</option></select></div>
+                      <div><label for="columnsCladding" class="block text-sm font-medium text-gray-300 mb-1">Cladding</label><select id="columnsCladding" formControlName="columnsCladding" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>None</option><option>Fully Cladded</option><option>Paint only</option></select></div>
+                      <div><label for="columnsDesign" class="block text-sm font-medium text-gray-300 mb-1">Design</label><select id="columnsDesign" formControlName="columnsDesign" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>Same as main sign</option><option>Contrasting color</option></select></div>
+                      <div class="md:col-span-2"><label for="columnsDecor" class="block text-sm font-medium text-gray-300 mb-1">Decoration</label><select id="columnsDecor" formControlName="columnsDecor" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>None</option><option>Vertical LED strips</option><option>Sconces</option></select></div>
                   </div>
 
-                  <h3 class="text-lg font-semibold text-gray-400 border-b border-gray-600 pb-2 pt-4">السقف المعلق (Soffit)</h3>
+                  <h3 class="text-lg font-semibold text-gray-400 border-b border-gray-600 pb-2 pt-4">Soffit (Overhang Ceiling)</h3>
                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div class="text-center"><label for="soffitColor" class="block text-sm font-medium text-gray-300 mb-2">اللون</label><input type="color" id="soffitColor" formControlName="soffitColor" class="w-12 h-12 rounded-full border-4 border-gray-700 cursor-pointer"></div>
-                      <div><label for="soffitSpotlightsCount" class="block text-sm font-medium text-gray-300 mb-1">عدد الكشافات</label><input type="number" id="soffitSpotlightsCount" formControlName="soffitSpotlightsCount" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"></div>
-                      <div class="md:col-span-2"><label for="soffitLightColorTemp" class="block text-sm font-medium text-gray-300 mb-1">درجة حرارة الإضاءة</label><select id="soffitLightColorTemp" formControlName="soffitLightColorTemp" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="Cool White">أبيض بارد</option><option value="Warm White">أبيض دافئ</option></select></div>
+                      <div class="text-center"><label for="soffitColor" class="block text-sm font-medium text-gray-300 mb-2">Color</label><input type="color" id="soffitColor" formControlName="soffitColor" class="w-12 h-12 rounded-full border-4 border-gray-700 cursor-pointer"></div>
+                      <div><label for="soffitSpotlightsCount" class="block text-sm font-medium text-gray-300 mb-1">Spotlight Count</label><input type="number" id="soffitSpotlightsCount" formControlName="soffitSpotlightsCount" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"></div>
+                      <div class="md:col-span-2"><label for="soffitLightColorTemp" class="block text-sm font-medium text-gray-300 mb-1">Light Temperature</label><select id="soffitLightColorTemp" formControlName="soffitLightColorTemp" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>Cool White</option><option>Warm White</option></select></div>
                   </div>
 
-                  <h3 class="text-lg font-semibold text-gray-400 border-b border-gray-600 pb-2 pt-4">عام</h3>
-                  <div><label for="openings" class="block text-sm font-medium text-gray-300 mb-1">عدد الأبواب/النوافذ</label><input type="number" id="openings" formControlName="openings" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"></div>
+                  <h3 class="text-lg font-semibold text-gray-400 border-b border-gray-600 pb-2 pt-4">General</h3>
+                  <div><label for="openings" class="block text-sm font-medium text-gray-300 mb-1">Number of Doors/Windows</label><input type="number" id="openings" formControlName="openings" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"></div>
               </div>
             </div>
           </div>
@@ -213,15 +171,15 @@ import { DesignParameters } from './models/design-parameters.model';
           <div>
             <h2 id="accordion-heading-extras">
               <button type="button" (click)="toggleAccordion('extras')" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-300 border-b border-gray-700 hover:bg-gray-700/50" [attr.aria-expanded]="activeAccordionSection() === 'extras'">
-                <span class="text-xl text-purple-400 font-['Reem_Kufi']">6. إضافات</span>
+                <span class="text-xl text-purple-400">6. Extras</span>
                 <svg class="w-6 h-6 shrink-0 transition-transform" [class.rotate-180]="activeAccordionSection() === 'extras'" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </button>
             </h2>
             <div id="accordion-body-extras" [class.hidden]="activeAccordionSection() !== 'extras'">
               <div class="p-5 border-b border-gray-700 grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div><label for="extrasScreen" class="block text-sm font-medium text-gray-300 mb-1">شاشة إلكترونية</label><select id="extrasScreen" formControlName="extrasScreen" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="None">لا يوجد</option><option value="Scrolling LED Sign">لوحة LED متحركة</option></select></div>
-                  <div><label for="extrasAwning" class="block text-sm font-medium text-gray-300 mb-1">مظلة</label><select id="extrasAwning" formControlName="extrasAwning" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="None">لا يوجد</option><option value="Fabric Awning">مظلة قماشية</option><option value="Metal Awning">مظلة معدنية</option></select></div>
-                  <div class="md:col-span-2"><label for="extrasWindowGraphics" class="block text-sm font-medium text-gray-300 mb-1">رسومات/ملصقات النوافذ</label><select id="extrasWindowGraphics" formControlName="extrasWindowGraphics" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option value="None">لا يوجد</option><option value="Yes">نعم</option></select></div>
+                  <div><label for="extrasScreen" class="block text-sm font-medium text-gray-300 mb-1">Electronic Screen</label><select id="extrasScreen" formControlName="extrasScreen" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>None</option><option>Scrolling LED Sign</option></select></div>
+                  <div><label for="extrasAwning" class="block text-sm font-medium text-gray-300 mb-1">Awning</label><select id="extrasAwning" formControlName="extrasAwning" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>None</option><option>Fabric Awning</option><option>Metal Awning</option></select></div>
+                  <div class="md:col-span-2"><label for="extrasWindowGraphics" class="block text-sm font-medium text-gray-300 mb-1">Window Graphics/Stickers</label><select id="extrasWindowGraphics" formControlName="extrasWindowGraphics" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition"><option>None</option><option>Yes</option></select></div>
               </div>
             </div>
           </div>
@@ -230,9 +188,9 @@ import { DesignParameters } from './models/design-parameters.model';
         <div class="mt-8">
           <button type="submit" [disabled]="designForm.invalid || !originalImage() || isLoading()" class="w-full font-bold py-3 px-4 rounded-lg text-white transition-all duration-300 ease-in-out bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 disabled:opacity-50 disabled:cursor-not-allowed disabled:from-gray-600 disabled:to-gray-600">
              @if (isGenerating()) {
-              <span class="font-['Amiri']">جاري التوليد...</span>
+              <span>Generating...</span>
             } @else {
-              <span class="font-['Amiri']">✨ صمم واجهتي</span>
+              <span>✨ Generate My Design</span>
             }
           </button>
         </div>
@@ -250,29 +208,29 @@ import { DesignParameters } from './models/design-parameters.model';
           @if (isGenerating()) {
             <p class="mt-4 text-lg font-medium">{{ loadingMessage() }}</p>
           } @else if (isEditing()) {
-            <p class="mt-4 text-lg font-medium font-['Amiri']">جاري تطبيق التعديل...</p>
+            <p class="mt-4 text-lg font-medium">Applying your edit...</p>
           }
         </div>
       } @else if (error()) {
         <div class="text-center text-red-400 bg-red-900/50 p-6 rounded-lg">
-          <h3 class="font-bold text-lg mb-2 font-['Reem_Kufi']">فشل التوليد</h3>
+          <h3 class="font-bold text-lg mb-2">Generation Failed</h3>
           <p>{{ error() }}</p>
         </div>
       } @else if (generatedImage()) {
         <div class="w-full">
             <img [src]="generatedImage()" alt="Generated Facade Design" class="rounded-lg shadow-lg object-contain max-h-[65vh] w-full">
             
-            <div class="mt-4 p-4 bg-gray-900/60 rounded-lg text-left" dir="rtl">
-              <h3 class="text-base font-semibold text-purple-300 mb-2 font-['Reem_Kufi']">تحسين تصميمك</h3>
-              <p class="text-xs text-gray-400 mb-3 font-['Amiri']">صف التغيير، مثل "اجعل الحروف حمراء" أو "أضف فلتر كلاسيكي".</p>
+            <div class="mt-4 p-4 bg-gray-900/60 rounded-lg text-left">
+              <h3 class="text-base font-semibold text-purple-300 mb-2">Refine Your Design</h3>
+              <p class="text-xs text-gray-400 mb-3">Describe a change, like "make the letters red" or "add a retro filter".</p>
               <form [formGroup]="designForm" (ngSubmit)="onEditImage()">
                 <div class="flex gap-2">
-                  <input type="text" formControlName="editPrompt" placeholder="أدخل تعليمات التعديل..." class="flex-grow w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition text-sm">
+                  <input type="text" formControlName="editPrompt" placeholder="Enter edit instruction..." class="flex-grow w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-purple-500 focus:border-purple-500 transition text-sm">
                   <button type="submit" [disabled]="!designForm.get('editPrompt')?.value || isLoading()" class="font-bold py-2 px-4 rounded-lg text-white transition-all duration-300 ease-in-out bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 disabled:opacity-50 disabled:cursor-not-allowed disabled:from-gray-600 disabled:to-gray-600 text-sm">
                     @if (isEditing()) {
-                      <span class="font-['Amiri']">جاري التطبيق...</span>
+                      <span>Applying...</span>
                     } @else {
-                      <span class="font-['Amiri']">تطبيق التعديل</span>
+                      <span>Apply Edit</span>
                     }
                   </button>
                 </div>
@@ -280,7 +238,7 @@ import { DesignParameters } from './models/design-parameters.model';
             </div>
 
             <div class="text-center">
-              <button (click)="startOver()" class="mt-4 font-bold py-2 px-6 rounded-lg text-white bg-gray-600 hover:bg-gray-500 transition-colors font-['Amiri']">البدء من جديد</button>
+              <button (click)="startOver()" class="mt-4 font-bold py-2 px-6 rounded-lg text-white bg-gray-600 hover:bg-gray-500 transition-colors">Start Over</button>
             </div>
         </div>
       } @else if (originalImage()) {
@@ -288,7 +246,7 @@ import { DesignParameters } from './models/design-parameters.model';
       } @else {
         <div class="text-center text-gray-500">
           <svg class="w-24 h-24 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-          <p class="mt-4 text-lg font-['Amiri']">سيظهر تصميمك المولد هنا</p>
+          <p class="mt-4 text-lg">Your generated design will appear here</p>
         </div>
       }
     </div>
@@ -314,15 +272,15 @@ export class AppComponent {
   activeAccordionSection = signal<string | null>('upload');
 
   error = signal<string | null>(null);
-  loadingMessage = signal('جاري تهيئة التوليد...');
+  loadingMessage = signal('Initializing generation...');
 
   private loadingMessages = [
-    'تحليل هندسة الواجهة...',
-    'تطبيق مواد جديدة...',
-    'تصيير الإضاءة الافتراضية...',
-    'بناء الحروف ثلاثية الأبعاد...',
-    'صقل الخامات النهائية...',
-    'أوشكنا على الانتهاء، جاري التصيير النهائي...'
+    'Analyzing facade geometry...',
+    'Applying new materials...',
+    'Rendering virtual lighting...',
+    'Constructing 3D lettering...',
+    'Polishing final textures...',
+    'Almost there, finalizing render...'
   ];
   private messageInterval: any;
 
